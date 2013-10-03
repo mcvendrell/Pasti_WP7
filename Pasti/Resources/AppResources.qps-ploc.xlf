@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="es-ES" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="Pasti" product-version="1.0.0.0" build-num="0">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="2.0.1000.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="Resx">
+        <trans-unit translate="yes" id="Resx/Accept" xml:space="preserve">
+          <source>Aceptar</source>
+          <target state="new">Aceptar</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Add" xml:space="preserve">
+          <source>Añadir</source>
+          <target state="new">Añadir</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/AddPill" xml:space="preserve">
+          <source>Añadir Pastilla</source>
+          <target state="new">Añadir Pastilla</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/ApplicationTitle" xml:space="preserve">
+          <source>PASTI</source>
+          <target state="new">PASTI</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/April" xml:space="preserve">
+          <source>Abril</source>
+          <target state="new">Abril</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/August" xml:space="preserve">
+          <source>Agosto</source>
+          <target state="new">Agosto</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Cancel" xml:space="preserve">
+          <source>Cancelar</source>
+          <target state="new">Cancelar</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Days" xml:space="preserve">
+          <source>Días</source>
+          <target state="new">Días</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/DaysForNextTake" xml:space="preserve">
+          <source>Días para la próxima toma</source>
+          <target state="new">Días para la próxima toma</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/December" xml:space="preserve">
+          <source>Diciembre</source>
+          <target state="new">Diciembre</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Delete" xml:space="preserve">
+          <source>Borrar</source>
+          <target state="new">Borrar</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/February" xml:space="preserve">
+          <source>Febrero</source>
+          <target state="new">Febrero</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/FillAllFields" xml:space="preserve">
+          <source>Por favor, rellene todos los campos</source>
+          <target state="new">Por favor, rellene todos los campos</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/FirstDayTake" xml:space="preserve">
+          <source>Primer día de toma</source>
+          <target state="new">Primer día de toma</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Fri" xml:space="preserve">
+          <source>Vie</source>
+          <target state="new">Vie</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Friday" xml:space="preserve">
+          <source>Viernes</source>
+          <target state="new">Viernes</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/IsDay" xml:space="preserve">
+          <source>Hoy TOCA</source>
+          <target state="new">Hoy TOCA</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/IsNotDay" xml:space="preserve">
+          <source>Hoy no toca</source>
+          <target state="new">Hoy no toca</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/January" xml:space="preserve">
+          <source>Enero</source>
+          <target state="new">Enero</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/July" xml:space="preserve">
+          <source>Julio</source>
+          <target state="new">Julio</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/June" xml:space="preserve">
+          <source>Junio</source>
+          <target state="new">Junio</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/MainTitle" xml:space="preserve">
+          <source>Mis Pastillas</source>
+          <target state="new">Mis Pastillas</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/March" xml:space="preserve">
+          <source>Marzo</source>
+          <target state="new">Marzo</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/May" xml:space="preserve">
+          <source>Mayo</source>
+          <target state="new">Mayo</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Mon" xml:space="preserve">
+          <source>Lun</source>
+          <target state="new">Lun</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Monday" xml:space="preserve">
+          <source>Lunes</source>
+          <target state="new">Lunes</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/November" xml:space="preserve">
+          <source>Noviembre</source>
+          <target state="new">Noviembre</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/October" xml:space="preserve">
+          <source>Octubre</source>
+          <target state="new">Octubre</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/PillName" xml:space="preserve">
+          <source>Nombre</source>
+          <target state="new">Nombre</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Sat" xml:space="preserve">
+          <source>Sab</source>
+          <target state="new">Sab</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Saturday" xml:space="preserve">
+          <source>Sábado</source>
+          <target state="new">Sábado</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Save" xml:space="preserve">
+          <source>Grabar</source>
+          <target state="new">Grabar</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/September" xml:space="preserve">
+          <source>Septiembre</source>
+          <target state="new">Septiembre</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/StartOn" xml:space="preserve">
+          <source>Empieza</source>
+          <target state="new">Empieza</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Sun" xml:space="preserve">
+          <source>Dom</source>
+          <target state="new">Dom</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Sunday" xml:space="preserve">
+          <source>Domingo</source>
+          <target state="new">Domingo</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Thu" xml:space="preserve">
+          <source>Jue</source>
+          <target state="new">Jue</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Thursday" xml:space="preserve">
+          <source>Jueves</source>
+          <target state="new">Jueves</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/TodayIs" xml:space="preserve">
+          <source>Hoy es: </source>
+          <target state="new">Hoy es: </target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Tue" xml:space="preserve">
+          <source>Mar</source>
+          <target state="new">Mar</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Tuesday" xml:space="preserve">
+          <source>Martes</source>
+          <target state="new">Martes</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Wed" xml:space="preserve">
+          <source>Mie</source>
+          <target state="new">Mie</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/Wednesday" xml:space="preserve">
+          <source>Miércoles</source>
+          <target state="new">Miércoles</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
