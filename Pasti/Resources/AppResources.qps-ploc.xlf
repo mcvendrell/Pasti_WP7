@@ -30,6 +30,10 @@
           <source>Agosto</source>
           <target state="new">Agosto</target>
         </trans-unit>
+        <trans-unit translate="yes" id="Resx/Back" xml:space="preserve">
+          <source>Volver</source>
+          <target state="new">Volver</target>
+        </trans-unit>
         <trans-unit translate="yes" id="Resx/Cancel" xml:space="preserve">
           <source>Cancelar</source>
           <target state="new">Cancelar</target>

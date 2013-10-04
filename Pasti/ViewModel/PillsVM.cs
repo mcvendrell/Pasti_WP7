@@ -32,13 +32,7 @@ namespace LocalDatabaseSample.ViewModel
             }
         }
 
-        // Write changes in the data context to the database.
-        public void SaveChangesToDB()
-        {
-            pillsDB.SubmitChanges();
-        }
-
-        // Query database and load the collections and list used by the pages.
+        // Query database and load the collections and list used by the pages. Will be executed in App.xaml at the start.
         public void LoadCollectionsFromDatabase()
         {
             // Specify the query for all Pills in the database.
@@ -47,6 +41,12 @@ namespace LocalDatabaseSample.ViewModel
 
             // Query the database and load all Pills.
             AllPills = new ObservableCollection<PillItem>(pillsInDB);
+        }
+
+        // Write changes in the data context to the database.
+        public void SaveChangesToDB()
+        {
+            pillsDB.SubmitChanges();
         }
 
         // Add a Pill to the database and collections.
@@ -63,17 +63,16 @@ namespace LocalDatabaseSample.ViewModel
         }
 
         // Remove a Pill from the database and collections.
-        public void DeletePill(PillItem pillsForDelete) {
+        public void DeletePill(PillItem pillToDelete) {
             // Remove the Pill from the "all" observable collection.
-            AllPills.Remove(pillsForDelete);
+            AllPills.Remove(pillToDelete);
 
             // Remove the Pill from the data context.
-            pillsDB.Items.DeleteOnSubmit(pillsForDelete);
+            pillsDB.Items.DeleteOnSubmit(pillToDelete);
 
             // Save changes to the database.
             pillsDB.SubmitChanges();
         }
-
 
         #region INotifyPropertyChanged Members
 

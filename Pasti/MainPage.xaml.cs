@@ -58,5 +58,18 @@ namespace Pasti
             NavigationService.Navigate(new Uri("/AddPillPage.xaml", UriKind.Relative));
         }
 
+        // Event for choosing a pill in the list
+        private void lstPills_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // If no index, cancel action
+            if (lstPills.SelectedIndex == -1)
+                return;
+
+            // Go to the pill data page
+            NavigationService.Navigate(new Uri("/PillInfo.xaml?selectedItem=" + lstPills.SelectedIndex, UriKind.Relative));
+
+            // Restablish index
+            lstPills.SelectedIndex = -1;
+        }
     }
 }

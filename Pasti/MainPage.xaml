@@ -22,48 +22,45 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding Path=LocalizedResources.MainTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextTitle1Style}" Margin="9,-7,0,0" />
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0,0,0,0" />
+            <TextBlock Text="{Binding Path=LocalizedResources.MainTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF047CFF" Margin="0,-8,0,0" />
         </StackPanel>
 
-        <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox x:Name="lstPills" ItemsSource="{Binding AllPills}" 
-                     Grid.Row="0" Margin="12, 0, 12, 0" Width="432">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch" Width="440">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="40" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock
-                                Text="{Binding IsToday}"
-                                FontSize="{StaticResource PhoneFontSizeLarge}"
-                                Grid.Column="0"
-                                VerticalAlignment="Center"/>
-                            <TextBlock
-                                Text="{Binding PillName}"
-                                FontSize="{StaticResource PhoneFontSizeLarge}"
-                                Grid.Column="1"
-                                VerticalAlignment="Center"/>
-                            <TextBlock
-                                Text="{Binding PillDays}"
-                                FontSize="{StaticResource PhoneFontSizeLarge}"
-                                Grid.Column="2"
-                                VerticalAlignment="Center"/>
-                            <TextBlock
-                                Text="{Binding PillStart}"
-                                FontSize="{StaticResource PhoneFontSizeLarge}"
-                                Grid.Column="3"
-                                VerticalAlignment="Center"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
+        <!--List with all the pills-->
+        <ListBox x:Name="lstPills" Grid.Row="1" ItemsSource="{Binding AllPills}" Margin="12, 0, 12, 0" SelectionChanged="lstPills_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" Width="440">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Text="{Binding IsToday, Mode=TwoWay}"
+                            FontSize="{StaticResource PhoneFontSizeLarge}"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"/>
+                        <TextBlock
+                            Text="{Binding PillName}"
+                            FontSize="{StaticResource PhoneFontSizeLarge}"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"/>
+                        <TextBlock
+                            Text="{Binding PillDays, Mode=TwoWay}"
+                            FontSize="{StaticResource PhoneFontSizeLarge}"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"/>
+                        <TextBlock
+                            Text="{Binding PillStart, Mode=TwoWay}"
+                            FontSize="{StaticResource PhoneFontSizeLarge}"
+                            Grid.Column="3"
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 
     <!--Barra de opciones. Colocar aquí el menú de opciones a ejecutar (está por código) -->

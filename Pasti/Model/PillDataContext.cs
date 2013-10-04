@@ -75,10 +75,10 @@ namespace LocalDatabaseSample.Model
         }
 
         // Define item starting day: private field, public property, and database column.
-        private string _pillStart;
+        private DateTime _pillStart;
 
         [Column]
-        public string PillStart
+        public DateTime PillStart
         {
             get { return _pillStart; }
             set

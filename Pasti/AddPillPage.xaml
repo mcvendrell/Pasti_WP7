@@ -24,7 +24,7 @@
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding Path=LocalizedResources.AddPill, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextTitle1Style}" Margin="9,-7,0,0" />
+            <TextBlock Text="{Binding Path=LocalizedResources.AddPill, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF047CFF" Margin="9,-7,0,0" />
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->

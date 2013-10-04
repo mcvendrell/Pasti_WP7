@@ -26,89 +26,75 @@
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="lblTitle" Text="Auto" Style="{StaticResource PhoneTextTitle1Style}" Margin="9,-7,0,0" />
+            <TextBlock x:Name="lblTitle" Text="{Binding PillName}" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF047CFF" Margin="9,-7,0,0" />
         </StackPanel>
 
         <!--First day block-->
         <StackPanel x:Name="FirstDayPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Text="{Binding Path=LocalizedResources.FirstDayTake, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center"/>
-            <StackPanel x:Name="FirstDayChildPanel" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <toolkit:DatePicker x:Name="dtStartDate" Margin="0,0,30,0"/>
-                <Button x:Name="btnSubFirst" Width="80" FontWeight="ExtraBold">-</Button>
-                <Button x:Name="btnAddFirst" Width="80" FontWeight="ExtraBold">+</Button>
+            <StackPanel x:Name="FirstDayChildPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <toolkit:DatePicker x:Name="dtStartDate" Value="{Binding PillStart, Mode=TwoWay}" ValueChanged="dtStartDate_ValueChanged" Margin="0,0,30,0" Background="LightGray"/>
+                <Button x:Name="btnSubFirst" Width="80" Click="changeFirstDay">-</Button>
+                <Button x:Name="btnAddFirst" Width="80" Click="changeFirstDay">+</Button>
             </StackPanel>
         </StackPanel>
 
         <!--Days block-->
         <StackPanel x:Name="DaysPanel" Grid.Row="2" Margin="12,0,12,0">
             <TextBlock Text="{Binding Path=LocalizedResources.DaysForNextTake, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center"/>
-            <StackPanel x:Name="DaysChildPanel" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Border BorderBrush="Black" BorderThickness="1" Height="80" Width="80" CornerRadius="40" Margin="0,0,30,0">
-                	<Border.Background>
-                		<SolidColorBrush Color="{StaticResource PhoneTextBoxColor}"/>
-                	</Border.Background>
-                	<TextBlock x:Name="lblDays" Text="2" VerticalAlignment="Center" Margin="0,0,0,6" FontSize="45" HorizontalAlignment="Center"/>
+            <StackPanel x:Name="DaysChildPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Border Background="LightGray" BorderBrush="Black" BorderThickness="1" Height="80" Width="80" CornerRadius="40" Margin="0,0,30,0">
+                    <TextBlock x:Name="lblDays" Text="{Binding PillDays, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,0,6" FontSize="45" HorizontalAlignment="Center"/>
                 </Border>
-                <Button x:Name="btnSubDay" Width="80" FontWeight="ExtraBold" Content="-"/>
-                <Button x:Name="btnAddDay" Width="80" FontWeight="ExtraBold" Content="+"/>
+                <Button x:Name="btnSubDay" Width="80" Content="-" Click="changeInterval"/>
+                <Button x:Name="btnAddDay" Width="80" Content="+" Click="changeInterval"/>
             </StackPanel>
         </StackPanel>
 
         <!--Weekdays & today block-->
         <StackPanel x:Name="WeekPanel" Grid.Row="3" Margin="12,30,12,0">
-            <StackPanel x:Name="TodayPanel" Grid.Row="1" Orientation="Horizontal">
-                <TextBlock x:Name="lblToday" Text="Hoy es: Lun, 9 de Diciembre" VerticalAlignment="Center"/>
-                <Border HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="190" CornerRadius="20" Background="#FF047CFF" Margin="20,0,0,0">
-                    <TextBlock x:Name="lblIsDay" Text="{Binding LocalizedResources.IsDay, Source={StaticResource LocalizedStrings}}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,5,0,5" FontSize="30" Margin="0"/>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
-            	<Border x:Name="bdrMon" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="#FF047CFF">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblMon" Text="{Binding LocalizedResources.Mon, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+            <!--today block-->
+            <Canvas Height="50">
+            	<TextBlock x:Name="lblToday" Text="Hoy es: Lun, 9 de Diciembre" Canvas.Top="12"/>
+            	<Border x:Name="brdIsDay" Height="50" Width="190" CornerRadius="25" Background="#FF047CFF" Canvas.Left="266">
+            		<TextBlock x:Name="lblIsDay" Text="{Binding LocalizedResources.IsDay, Source={StaticResource LocalizedStrings}}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,5,0,5" FontSize="30" Margin="0"/>
             	</Border>
-                <Border x:Name="bdrTue" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="Gainsboro" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblTue" Text="{Binding LocalizedResources.Tue, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            	</Border>
-                <Border x:Name="bdrWed" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="#FF047CFF" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblWed" Text="{Binding LocalizedResources.Wed, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-            	</Border>
-                <Border x:Name="bdrThu" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="Gainsboro" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblThu" Text="{Binding LocalizedResources.Thu, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
-            	</Border>
-                <Border x:Name="bdrFri" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="#FF047CFF" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblFri" Text="{Binding LocalizedResources.Fri, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-            	</Border>
-                <Border x:Name="bdrSat" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="Gainsboro" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblSat" Text="{Binding LocalizedResources.Sat, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
-            	</Border>
-                <Border x:Name="bdrSun" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.486,0.441" UseLayoutRounding="False" d:LayoutRounding="Auto" CornerRadius="29" Background="#FF047CFF" Margin="8,0,0,0">
-            		<Border.RenderTransform>
-            			<CompositeTransform Rotation="-0.009" TranslateY="0.001"/>
-            		</Border.RenderTransform>
-                    <TextBlock x:Name="lblSun" Text="{Binding LocalizedResources.Sun, Source={StaticResource LocalizedStrings}}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-            	</Border>
-            </StackPanel>
+            </Canvas>
+            <!--today block-->
             
+            <!--Weekdays block-->
+            <Grid x:Name="WeekGrid" Background="Transparent" Margin="0,50,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="brdMon" Grid.Column="0" Height="60" Width="60" CornerRadius="30" Background="#FF047CFF">
+                    <TextBlock x:Name="lblMon" Text="{Binding LocalizedResources.Mon, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                </Border>
+                <Border x:Name="brdTue" Grid.Column="1" Height="60" Width="60" CornerRadius="30" Background="LightGray">
+                    <TextBlock x:Name="lblTue" Text="{Binding LocalizedResources.Tue, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                </Border>
+                <Border x:Name="brdWed" Grid.Column="2" Height="60" Width="60" CornerRadius="30" Background="#FF047CFF">
+                    <TextBlock x:Name="lblWed" Text="{Binding LocalizedResources.Wed, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                </Border>
+                <Border x:Name="brdThu" Grid.Column="3" Height="60" Width="60" CornerRadius="30" Background="LightGray">
+                    <TextBlock x:Name="lblThu" Text="{Binding LocalizedResources.Thu, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                </Border>
+                <Border x:Name="brdFri" Grid.Column="4" Height="60" Width="60" CornerRadius="30" Background="#FF047CFF">
+                    <TextBlock x:Name="lblFri" Text="{Binding LocalizedResources.Fri, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                </Border>
+                <Border x:Name="brdSat" Grid.Column="5" Height="60" Width="60" CornerRadius="30" Background="LightGray">
+                    <TextBlock x:Name="lblSat" Text="{Binding LocalizedResources.Sat, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                </Border>
+                <Border x:Name="brdSun" Grid.Column="6" Height="60" Width="60" CornerRadius="29" Background="#FF047CFF">
+                    <TextBlock x:Name="lblSun" Text="{Binding LocalizedResources.Sun, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                </Border>
+            </Grid>
         </StackPanel>
-
     </Grid>
-
 </phone:PhoneApplicationPage>

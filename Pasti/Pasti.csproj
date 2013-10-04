@@ -69,6 +69,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Brain.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -113,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\appbar.add.rest.png" />
+    <Content Include="Assets\appbar.back.rest.png" />
     <Content Include="Assets\appbar.cancel.rest.png" />
     <Content Include="Assets\appbar.check.rest.png" />
     <Content Include="Assets\appbar.delete.rest.png" />

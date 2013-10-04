@@ -135,6 +135,9 @@
   <data name="August" xml:space="preserve">
     <value>Agosto</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Volver</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>

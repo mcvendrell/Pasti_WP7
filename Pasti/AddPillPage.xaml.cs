@@ -68,8 +68,8 @@ namespace Pasti
                 PillItem newPill = new PillItem
                 {
                     PillName = txtName.Text,
-                    PillDays = Convert.ToInt32(txtDays.Text),
-                    PillStart = Convert.ToString(dtStartDate.Value)
+                    PillDays = int.Parse(txtDays.Text),
+                    PillStart = ((DateTime)dtStartDate.Value).Date.Add(((DateTime)dtStartDate.Value).TimeOfDay)
                 };
 
                 // Add the item to the ViewModel.

@@ -115,6 +115,15 @@ namespace Pasti.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Volver.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cancelar.
         /// </summary>
         public static string Cancel {
