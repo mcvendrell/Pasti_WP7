@@ -14,15 +14,26 @@ namespace Pasti
     public class Brain
     {
         // Holds the seven week days (1 to 7, spanish format) with bool value
-	    public bool[] week;
-	    // Represent, for the current day, if is a day to take the pill
-        public bool take;
+        private bool[] _week;
+
+        public bool[] week
+        {
+            get { return _week; }
+        }
+
+        // Represent, for the current day, if is a day to take the pill
+        private bool _take;
+
+        public bool take
+        {
+            get { return _take; }
+        }
 
         // Constructor
         public Brain()
         {
-            week = new bool[8];
-            take = false;
+            _week = new bool[8];
+            _take = false;
         }
 
         /*
@@ -30,7 +41,7 @@ namespace Pasti
          * and the interval the user wants to check. If the result is 0, then the interval
          * is complete (so, in this case, it represents that the user must take the pill)
          */
-        public bool todayTake(int days, int interval)
+        public static bool todayTake(int days, int interval)
         {
 	        return (Math.Abs(days) % interval == 0 ? true : false);
         }
@@ -55,7 +66,7 @@ namespace Pasti
                 currentWeekday = 7;
 
             // Calculate for the current day if is a take day
-	        this.take = this.todayTake(numDays, interval);
+	        this._take = todayTake(numDays, interval);
             
 	        // Configure the current week
 	        configureCurrentWeek(numDays, currentWeekday, interval);
@@ -76,7 +87,7 @@ namespace Pasti
             
 		    // From here, configure each weekday on our week (remember, 1=Monday, 7=Sunday)
 		    for (int i=1; i <= 7; i++) {
-    		    this.week[i] = this.todayTake(numDaysOnMonday + (i - 1), interval);
+    		    this._week[i] = todayTake(numDaysOnMonday + (i - 1), interval);
 	        }
 	    }
     }

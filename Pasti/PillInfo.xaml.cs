@@ -30,10 +30,6 @@ namespace Pasti
 
             // Initialize the Brain
             brain = new Brain();
-
-            // Set initial values
-            // Today
-            lblToday.Text = AppResources.TodayIs + " " + DateTime.Today.ToString("ddd, d MMMM");
         }
 
         // Build a localized ApplicationBar
@@ -76,8 +72,9 @@ namespace Pasti
             // Return to the main page.
             if (NavigationService.CanGoBack)
             {
-                // Save the changes to the DB to persist or only the view will reflect the changes
-                App.ViewModel.SaveChangesToDB();
+                // Force the calculated field in the listbox to refresh, setting its value to anything
+                // It's a twoWay field with Notify property, so a change will force it to recalculate
+                //App.ViewModel.AllPills[int.Parse(selectedIndex)].IsToday = "";
 
                 NavigationService.GoBack();
             }
@@ -91,6 +88,7 @@ namespace Pasti
             {
                 int index = int.Parse(selectedIndex);
                 DataContext = App.ViewModel.AllPills[index];
+
                 // Make a initial refresh of the interface
                 refreshInterface();
             }
@@ -112,6 +110,8 @@ namespace Pasti
             {
                 dtStartDate.Value = firstDay.AddDays(1);
             }
+            // Save the changes to the DB to persist or only the view will reflect the changes
+            App.ViewModel.SaveChangesToDB();
 	        
             refreshInterface();
         }
@@ -137,6 +137,8 @@ namespace Pasti
                     intervalDays = 31;
             }
             lblDays.Text = Convert.ToString(intervalDays);
+            // Save the changes to the DB to persist or only the view will reflect the changes
+            App.ViewModel.SaveChangesToDB();
 
             refreshInterface();
         }
@@ -145,7 +147,12 @@ namespace Pasti
         private void dtStartDate_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
         {
             if (e.NewDateTime != null)
+            {
+                // Save the changes to the DB to persist or only the view will reflect the changes
+                App.ViewModel.SaveChangesToDB();
+
                 refreshInterface();
+            }
         }
 
         // ====================================================
@@ -159,6 +166,10 @@ namespace Pasti
         // Refreshes all the interactive interface. Called at loading and when some parameter changes
         private void refreshInterface()
         {
+            // Set initial values
+            // Today
+            lblToday.Text = AppResources.TodayIs + " " + DateTime.Today.ToString("ddd, d MMMM");
+
             if (dtStartDate.Value == null || lblDays.Text == "")
                 return;
 
@@ -167,10 +178,13 @@ namespace Pasti
 	        // Configure the whole week (this will configure the brain vars)
 	        brain.calculateWeek(firstDay, int.Parse(lblDays.Text));
 
-	        // Is today a take day?
-	        lblIsDay.Text = brain.take ? AppResources.IsDay : AppResources.IsNotDay;
+            // Refresh also the YES-NO column in the main list, could be change its value
+            App.ViewModel.AllPills[int.Parse(selectedIndex)].IsToday = brain.take ? AppResources.YES : AppResources.NO;
+            // Is today a take day?
+            lblIsDay.Text = brain.take ? AppResources.IsDay : AppResources.IsNotDay;
 	        setDayStatus(brdIsDay, lblIsDay, brain.take);
 
+            // Week configuration
             setDayStatus(brdMon, lblMon, brain.week[1]);
             setDayStatus(brdTue, lblTue, brain.week[2]);
             setDayStatus(brdWed, lblWed, brain.week[3]);

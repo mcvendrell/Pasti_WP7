@@ -3,6 +3,10 @@ using System.ComponentModel;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 
+// Own files
+using Pasti;
+using Pasti.Resources;
+
 namespace LocalDatabaseSample.Model
 {
 
@@ -70,6 +74,10 @@ namespace LocalDatabaseSample.Model
                     NotifyPropertyChanging("PillDays");
                     _pillDays = value;
                     NotifyPropertyChanged("PillDays");
+
+                    // Also calculate the IsToday value here, to avoid recalculate it on every read
+                    // (in case we do this process in its own property)
+                    CalculateIsToday();
                 }
             }
         }
@@ -88,26 +96,31 @@ namespace LocalDatabaseSample.Model
                     NotifyPropertyChanging("PillStart");
                     _pillStart = value;
                     NotifyPropertyChanged("PillStart");
+
+                    // Also calculate the IsToday value here, to avoid recalculate it on every read
+                    // (in case we do this process in its own property)
+                    CalculateIsToday();
                 }
             }
         }
 
-        // Define completion value: private field, public property, and database column.
-        private bool _isToday;
-
-        [Column]
-        public bool IsToday
-        {
+        // Define a custom field based on some database values
+        // Get is calculated in the other fields, while set will force it to refresh by Notifying
+        private string _isToday;
+        public string IsToday {
             get { return _isToday; }
-            set
-            {
-                if (_isToday != value)
-                {
-                    NotifyPropertyChanging("IsToday");
-                    _isToday = value;
-                    NotifyPropertyChanged("IsToday");
-                }
-            }
+            set { NotifyPropertyChanged("IsToday"); }
+        }
+
+        // Function to calculate the IsToday value
+        private void CalculateIsToday()
+        {
+            DateTime today = DateTime.Today;
+            // Get the days between today and the starting day
+            int numDays = Math.Abs((today - _pillStart).Days);
+
+            _isToday = Brain.todayTake(numDays, _pillDays) ? AppResources.YES : AppResources.NO;
+            NotifyPropertyChanged("IsToday");
         }
 
         // Version column aids update performance.

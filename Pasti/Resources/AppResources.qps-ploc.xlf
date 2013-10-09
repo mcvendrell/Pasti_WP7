@@ -114,6 +114,10 @@
           <source>Lunes</source>
           <target state="new">Lunes</target>
         </trans-unit>
+        <trans-unit translate="yes" id="Resx/NO" xml:space="preserve">
+          <source>NO</source>
+          <target state="new">NO</target>
+        </trans-unit>
         <trans-unit translate="yes" id="Resx/November" xml:space="preserve">
           <source>Noviembre</source>
           <target state="new">Noviembre</target>
@@ -181,6 +185,10 @@
         <trans-unit translate="yes" id="Resx/Wednesday" xml:space="preserve">
           <source>Miércoles</source>
           <target state="new">Miércoles</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/YES" xml:space="preserve">
+          <source>SI</source>
+          <target state="new">SI</target>
         </trans-unit>
       </group>
     </body>

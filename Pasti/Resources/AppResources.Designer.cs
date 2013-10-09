@@ -304,6 +304,15 @@ namespace Pasti.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a NO.
+        /// </summary>
+        public static string NO {
+            get {
+                return ResourceManager.GetString("NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Noviembre.
         /// </summary>
         public static string November {
@@ -453,6 +462,15 @@ namespace Pasti.Resources {
         public static string Wednesday {
             get {
                 return ResourceManager.GetString("Wednesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SI.
+        /// </summary>
+        public static string YES {
+            get {
+                return ResourceManager.GetString("YES", resourceCulture);
             }
         }
     }

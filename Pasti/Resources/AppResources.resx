@@ -198,6 +198,9 @@
   <data name="Monday" xml:space="preserve">
     <value>Lunes</value>
   </data>
+  <data name="NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
   <data name="November" xml:space="preserve">
     <value>Noviembre</value>
   </data>
@@ -248,5 +251,8 @@
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Miércoles</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>SI</value>
   </data>
 </root>
