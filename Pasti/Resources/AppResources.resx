@@ -238,7 +238,7 @@
     <value>Jueves</value>
   </data>
   <data name="TodayIs" xml:space="preserve">
-    <value>Hoy es: </value>
+    <value>Hoy es </value>
   </data>
   <data name="Tue" xml:space="preserve">
     <value>Mar</value>

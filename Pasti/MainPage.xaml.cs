@@ -37,6 +37,9 @@ namespace Pasti
 
             // Set the page DataContext property to the ViewModel.
             this.DataContext = App.ViewModel;
+
+            // Starting day
+            loadDate = DateTime.Today;
         }
 
 
@@ -86,12 +89,14 @@ namespace Pasti
         // Read the current day and compare with saved. If when going back to here it has changed, refresh the list
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            // Read the current day.
-            DateTime today = DateTime.Today;
-
-            if (loadDate.Date != today.Date)
+            // Read the current day and compare
+            if (loadDate != DateTime.Today)
             {
-                lstPills
+                // The day has changed. Loop the list to refresh every item
+                foreach (PillItem item in lstPills.Items)
+                {
+                    item.CalculateIsToday();
+                }
             }
         }
 

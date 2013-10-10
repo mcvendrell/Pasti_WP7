@@ -421,7 +421,7 @@ namespace Pasti.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Hoy es: .
+        ///   Busca una cadena traducida similar a Hoy es .
         /// </summary>
         public static string TodayIs {
             get {

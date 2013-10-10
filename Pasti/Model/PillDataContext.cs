@@ -113,7 +113,7 @@ namespace LocalDatabaseSample.Model
         }
 
         // Function to calculate the IsToday value
-        private void CalculateIsToday()
+        public void CalculateIsToday()
         {
             DateTime today = DateTime.Today;
             // Get the days between today and the starting day
