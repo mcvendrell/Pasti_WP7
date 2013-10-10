@@ -29,9 +29,9 @@ Those simple 3 screens have enough work to learn a lot of basic concepts.
 
 ----------------------------------
 ####Screenshots:
-![iPhone Main](https://raw.github.com/mcvendrell/Pasti/master/screenshots/iPhone-Main.PNG)
-![iPhone Screen 1](https://raw.github.com/mcvendrell/Pasti/master/screenshots/iPhone-Add.PNG)
-![iPhone Screen 2](https://raw.github.com/mcvendrell/Pasti/master/screenshots/iPhone-Pill.PNG)
+![Main](https://raw.github.com/mcvendrell/Pasti_WP7/master/Pasti/Assets/MainScreen.png)
+![Screen 1](https://raw.github.com/mcvendrell/Pasti_WP7/master/Pasti/Assets/Add.png)
+![Screen 2](https://raw.github.com/mcvendrell/Pasti_WP7/master/Pasti/Assets/IsDay.png)
 
 ####License:
 
