@@ -36,3 +36,5 @@ Those simple 3 screens have enough work to learn a lot of basic concepts.
 ####License:
 
 I'm using the MIT license, which I find free enough with only the need of attribution to the autor.
+This app is approved and published on the Windows Phone Store on Oct 15,2013 and it is forbidden to publish it again using this source code.
+This source code is only for learning purposes.
